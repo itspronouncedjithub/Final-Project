@@ -10,8 +10,8 @@ class Block {
     
     loc = new PVector(x,y);
     
-    wd = 800;
-    ht = 200;
+    wd = 80;
+    ht = 20;
     
     c = color(255);
   }
