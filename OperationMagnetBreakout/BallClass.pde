@@ -17,7 +17,7 @@ class Ball {
     loc.add(vel);
   }
 
-  /*void bounce() {
+  void bounce() {
     if (loc.y + diam/2 < 0) {
       vel.y *= -1;
     }
@@ -30,5 +30,11 @@ class Ball {
     if (loc.x + diam/2 < width) {
       vel.x *= -1;
     }
-  }*/
+  }
+  
+  boolean isInContactWith(Paddle p){
+    if(loc.y >= height - h && loc.x >= p.loc.x - b/2 && loc.x <= p.loc.x + b/2){
+      return true;
+    }
+  }
 }

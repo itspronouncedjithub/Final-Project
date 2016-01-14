@@ -14,5 +14,8 @@ void draw() {
   p.display();
   b.move();
   b.display();
-  //b.bounce();
+  b.bounce();
+  if(b.isInContactWith(Paddle p){
+    b.vel.x *= -1;
+  }
 }
