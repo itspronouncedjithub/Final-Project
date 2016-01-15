@@ -1,4 +1,4 @@
-class Heart {
+class Heart {                                                  
   PImage heart;                                                //declare an image
   PVector loc;                                                 //intialize pvector
 
@@ -12,6 +12,6 @@ class Heart {
 
   void display () {                                            //create new command to display heart
     imageMode(CENTER);                                         //set image placement to center
-    image(heart, loc.x, loc.y, 50, 50);                      //place image at center of screen with height and width of 100
+    image(heart, loc.x, loc.y, 50, 50);                        //place image at center of screen with height and width of 100
   }
 }
