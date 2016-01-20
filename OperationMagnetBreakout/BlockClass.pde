@@ -11,7 +11,8 @@ class Block {
   color c;
 
   //create the block with variables for its health and its r, g, and b color values
-  Block(int h) {
+  Block(int x, int y, int h) {
+    loc = new PVector(x, y);
 
     //define the width and height of
     wd = 55;
@@ -41,16 +42,16 @@ class Block {
       g = 0;
       b = 0;
     }
-    
+
     //define the color of the block with the r, g, and b values to be imputted by the user
     c = color(r, g, b);
   }
 
-  void display(float x, float y) {
+  void display() {
     //color block
     fill(c);
     stroke(0);
     //draw block centered on given point
-    rect(x-(wd/2), y-(ht/2), wd, ht);
+    rect(loc.x-(wd/2), loc.y-(ht/2), wd, ht);
   }
 }

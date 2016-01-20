@@ -1,4 +1,3 @@
-
 //create arraylists for each row of block
 ArrayList<Block> bi;
 ArrayList<Block> bii;
@@ -22,15 +21,17 @@ void setup() {
 
   //define arraylists after the size has been defined
   bi = new ArrayList<Block>();
-  bii = new ArrayList<Block>();
-  biii = new ArrayList<Block>();
-  biv = new ArrayList<Block>();
-  bv = new ArrayList<Block>();
+
+
+  for (int x = 27; x < width; x+= 55) {
+    for (int y = 0; y < 5; y++) {
+      bi.add(new Block(x, 10 + y * 20, 5-y));
+    }
+  }
 }
 
 void draw() {
   background(0);
-
 
   if (menu==0) { //starting menu
     background(0);  //background for txt is black
@@ -59,48 +60,13 @@ void draw() {
 
 
     //create first row of blocks
-    if (bi.size() < 20) {
-      bi.add(new Block(5));
-    }
+
     for (int i = bi.size() - 1; i >= 0; i--) {
       Block b1 = bi.get(i);
-      b1.display((b1.wd/2) + (i*b1.wd), (b1.ht/2));
-    }
-
-    //create second row of blocks
-    if (bii.size() < 20) {
-      bii.add(new Block(4));
-    }
-    for (int i = bii.size() - 1; i >= 0; i--) {
-      Block b2 = bii.get(i);
-      b2.display((b2.wd/2) + (i*b2.wd), (3*b2.ht/2));
-    }
-
-    //create third row of blocks
-    if (biii.size() < 20) {
-      biii.add(new Block(3));
-    }
-    for (int i = biii.size() - 1; i >= 0; i--) {
-      Block b3 = biii.get(i);
-      b3.display((b3.wd/2) + (i*b3.wd), (5*b3.ht/2));
-    }
-
-    //create fourth row of blocks
-    if (biv.size() < 20) {
-      biv.add(new Block(2));
-    }
-    for (int i = biv.size() - 1; i >= 0; i--) {
-      Block b4 = biv.get(i);
-      b4.display((b4.wd/2) + (i*b4.wd), (7*b4.ht/2));
-    }
-
-    //create fifth row of blocks
-    if (bv.size() < 20) {
-      bv.add(new Block(1));
-    }
-    for (int i = bv.size() - 1; i >= 0; i--) {
-      Block b5 = bv.get(i);
-      b5.display((b5.wd/2) + (i*b5.wd), (9*b5.ht/2));
+      b1.display();
+      if (b.loc.x + b.diam/2 > b1.loc.x && b.loc.x - b.diam/2 < b1.loc.x + b1.wd && b.loc.y + b.diam/2 > b1.loc.y && b.loc.y - b.diam/2 < b1.loc.y + b1.ht) {
+        bi.remove(i);
+      }
     }
   }
 }
