@@ -1,9 +1,5 @@
 //create arraylists for each row of block
 ArrayList<Block> bi;
-ArrayList<Block> bii;
-ArrayList<Block> biii;
-ArrayList<Block> biv;
-ArrayList<Block> bv;
 
 float menu;   //starting menu =  menu 0, game code = menu 1, pause menu = menu 2
 
@@ -68,5 +64,14 @@ void draw() {
         bi.remove(i);
       }
     }
+    
+    if(bi.size() == 0){
+      menu = 2;
+    }
+  }
+  if(menu == 2){
+    fill(255);
+    textAlign(CENTER);
+    text("GAME OVER", width/2, height/2);
   }
 }
