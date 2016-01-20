@@ -38,7 +38,6 @@ void draw() {
     textSize(30);  //sets size of the "Instructions" text
     text("Instructions", width/2, height/2 - 40);  //display title called "Instructions"
     textSize(20); //sets size of the rest of the text to a smaller size than the title
-    text("- Press any key to start the ball moving.", width/2, height/2); //Instruction 1
     text("- Press left and right arrow keys on the keyboard to move the paddle.", width/2, height/2 + 20); //Instruction 2
     text("- To activate a powerup, press the spacebar.", width/2, height/2 + 40); //Instruction 2
     text(" - Press 's' key to play", width/2, height/2 +70);
