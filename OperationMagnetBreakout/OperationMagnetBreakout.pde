@@ -2,6 +2,7 @@
 ArrayList<Block> bi;
 
 float menu;   //starting menu =  menu 0, game code = menu 1, pause menu = menu 2
+PImage colorful;
 
 Paddle p;  //initialize object from the Paddle class
 Ball b;  //initialize object from the Ball class
@@ -24,6 +25,8 @@ void setup() {
       bi.add(new Block(x, 10 + y * 20, 5-y));
     }
   }
+  imageMode(CENTER);                                                    //center image placement
+  colorful = loadImage("colorful.jpg");                                 //load image of colorful explosion
 }
 
 void draw() {
@@ -39,11 +42,10 @@ void draw() {
     text("- Press left and right arrow keys on the keyboard to move the paddle.", width/2, height/2 + 20); //Instruction 2
     text("- To activate a powerup, press the spacebar.", width/2, height/2 + 40); //Instruction 2
     text(" - Press 's' key to play", width/2, height/2 +70);
-  }
-
-  if (keyPressed == true && key == 's') { //If s key pressed, exits starting menu and starts game
-    menu = 1;
-  } else if (menu==1) {
+    if (keyPressed == true && key == 's') { //If s key pressed, exits starting menu and starts game
+      menu++;
+    }
+  } else if (menu == 1) {
     p.move();  //move paddle according to player input
     p.display();  //display paddle
     b.move();  //move ball
@@ -73,25 +75,28 @@ void draw() {
         //}
       }
     }
-  }
-  //if (b.loc.x > b1.loc.x && b.loc.x < b1.loc.x + b1.wd && b.loc.y + b.diam/2 > b1.loc.y){
-  // b.vel.y *= -1;
-  //}
+
+    //if (b.loc.x > b1.loc.x && b.loc.x < b1.loc.x + b1.wd && b.loc.y + b.diam/2 > b1.loc.y){
+    // b.vel.y *= -1;
+    //}
 
 
-  if (p.loc.x + p.b > width) {
-    p.loc.x = width - p.b;
-  }
-  if (p.loc.x < 0) {
-    p.loc.x = 0;
-  }
+    if (p.loc.x + p.b > width) {
+      p.loc.x = width - p.b;
+    }
+    if (p.loc.x < 0) {
+      p.loc.x = 0;
+    }
 
-  if (bi.size() == 0) {
-    menu = 2;
-  }
-  if (menu == 2) {
-    fill(255);
-    textAlign(CENTER);
-    text("GAME OVER", width/2, height/2);
+    if (bi.size() == 0) {
+      menu = 2;
+    }
+    if (menu == 2) {
+      fill(255);
+      textAlign(CENTER);
+      text("GAME OVER", width/2, height/2);
+    } else if (menu==3) {
+      image(colorful, width/2, height/2, colorful.width, colorful.height);         //loads background image
+    }
   }
 }
