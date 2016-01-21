@@ -1,4 +1,4 @@
-Paddle p;                                                               //declare a new Paddle called p
+  Paddle p;                                                             //declare a new Paddle called p
 Ball b;                                                                 //declare a new Bucket called b
 
 void setup() {                                                          //this runs once

@@ -1,10 +1,10 @@
 class Ball {
-  PVector loc;
-  PVector vel;
-  int diam;
-  Ball(float x, float y) {
-    loc = new PVector(x, y);
-    vel = PVector.random2D();
+  PVector loc;                                                          //declare a PVector for location
+  PVector vel;                                                          //declare a PVector for vel
+  int diam;                                                             //int a diameter variable called diam
+  Ball(float x, float y) {                                              
+    loc = new PVector(x, y);                                            //set pvector to x and y coords
+    vel = PVector.random2D();                                           //
     vel.mult(10);
     diam = 20;
   }
