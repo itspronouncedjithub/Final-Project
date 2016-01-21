@@ -20,6 +20,7 @@ class Block {
     //assign the value "h" to its health
     health = h;
 
+    //change the color of the block based on its health value
     if (h == 5) {
       r = 150;
       g = 0;
@@ -41,7 +42,7 @@ class Block {
       g = 0;
       b = 0;
     }
-    
+
     //define the color of the block with the r, g, and b values to be imputted by the user
     c = color(r, g, b);
   }
