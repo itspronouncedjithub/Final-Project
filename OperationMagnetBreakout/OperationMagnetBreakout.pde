@@ -32,7 +32,15 @@ void setup() {
 void draw() {
   background(0);
 
-  if (menu==0) { //starting menu
+  if (menu==0) {
+    background(0);  //background for txt is black
+    image(colorful, width/2, height/2, colorful.width, colorful.height);         //loads background image
+    textAlign(CENTER);  // aligns text
+    if (keyPressed == true && key == ENTER) { //If enter key pressed, exits starting menu and starts game
+      menu = 1;
+    }
+  }
+  if (menu==1) { //starting menu
     background(0);  //background for txt is black
     textAlign(CENTER);  // aligns text
     textSize(30);  //sets size of the "Instructions" text
@@ -43,9 +51,9 @@ void draw() {
     text("- To activate a powerup, press the spacebar.", width/2, height/2 + 40); //Instruction 2
     text(" - Press 's' key to play", width/2, height/2 +70);
     if (keyPressed == true && key == 's') { //If s key pressed, exits starting menu and starts game
-      menu++;
+      menu = 2;
     }
-  } else if (menu == 1) {
+  } else if (menu == 2) {
     p.move();  //move paddle according to player input
     p.display();  //display paddle
     b.move();  //move ball
@@ -91,12 +99,10 @@ void draw() {
     if (bi.size() == 0) {
       menu = 2;
     }
-    if (menu == 2) {
+    if (menu == 3) {
       fill(255);
       textAlign(CENTER);
       text("GAME OVER", width/2, height/2);
-    } else if (menu==3) {
-      image(colorful, width/2, height/2, colorful.width, colorful.height);         //loads background image
     }
   }
 }
