@@ -60,16 +60,36 @@ void draw() {
     for (int i = bi.size() - 1; i >= 0; i--) {
       Block b1 = bi.get(i);
       b1.display();
-      if (b.loc.x + b.diam/2 > b1.loc.x && b.loc.x - b.diam/2 < b1.loc.x + b1.wd && b.loc.y + b.diam/2 > b1.loc.y && b.loc.y - b.diam/2 < b1.loc.y + b1.ht) {
+      //if (b.loc.x > b1.loc.x && b.loc.x < b1.loc.x + b1.wd && b.loc.y - b.diam/2 < b1.loc.y + b1.ht) {
+      //  if(b1.health > 0){
+      //    b.vel.y *= -1;
+      //    b1.health--;
+      //  }
+      //}
+      if ((b.loc.x + b.diam/2 > b1.loc.x && b.loc.x - b.diam/2 < b1.loc.x + b1.wd && b.loc.y + b.diam/2 > b1.loc.y && b.loc.y - b.diam/2 < b1.loc.y + b1.ht) || (b.loc.x > b1.loc.x && b.loc.x < b1.loc.x + b1.wd && b.loc.y + b.diam/2 > b1.loc.y)) {
+        //if (b1.health < 0) {
         bi.remove(i);
+        b.vel.y *= -1;
+        //}
       }
     }
-    
-    if(bi.size() == 0){
-      menu = 2;
-    }
   }
-  if(menu == 2){
+  //if (b.loc.x > b1.loc.x && b.loc.x < b1.loc.x + b1.wd && b.loc.y + b.diam/2 > b1.loc.y){
+  // b.vel.y *= -1;
+  //}
+
+
+  if (p.loc.x + p.b > width) {
+    p.loc.x = width - p.b;
+  }
+  if (p.loc.x < 0) {
+    p.loc.x = 0;
+  }
+
+  if (bi.size() == 0) {
+    menu = 2;
+  }
+  if (menu == 2) {
     fill(255);
     textAlign(CENTER);
     text("GAME OVER", width/2, height/2);

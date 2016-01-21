@@ -18,10 +18,10 @@ class Paddle {
     if (keyPressed) {
       if (key == CODED) {
         if (keyCode == RIGHT) {
-          loc.x += 3;
+          loc.x += 5;
         }
         if (keyCode == LEFT) {
-          loc.x -= 3;
+          loc.x -= 5;
         }
       }
     }
