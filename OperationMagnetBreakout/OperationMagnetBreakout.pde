@@ -1,5 +1,13 @@
 //create arraylists for each row of block
 ArrayList<Block> bi;
+<<<<<<< HEAD
+=======
+ArrayList<Block> bii;
+ArrayList<Block> biii;
+ArrayList<Block> biv;
+ArrayList<Block> bv;
+PImage colorful;
+>>>>>>> origin/master
 
 float menu;   //starting menu =  menu 0, game code = menu 1, pause menu = menu 2
 
@@ -17,6 +25,7 @@ void setup() {
 
   //define arraylists after the size has been defined
   bi = new ArrayList<Block>();
+<<<<<<< HEAD
 
 
   for (int x = 27; x < width; x+= 55) {
@@ -24,25 +33,57 @@ void setup() {
       bi.add(new Block(x, 10 + y * 20, 5-y));
     }
   }
+=======
+  bii = new ArrayList<Block>();
+  biii = new ArrayList<Block>();
+  biv = new ArrayList<Block>();
+  bv = new ArrayList<Block>();
+  
+  imageMode(CENTER);                                                    //center image placement
+  colorful = loadImage("colorful.jpg");                                 //load image of colorful explosion
+>>>>>>> origin/master
 }
 
 void draw() {
   background(0);
 
+<<<<<<< HEAD
   if (menu==0) { //starting menu
+=======
+
+  if (menu==0) {
+>>>>>>> origin/master
+    background(0);  //background for txt is black
+    image(colorful, width/2, height/2, colorful.width, colorful.height);         //loads background image
+    textAlign(CENTER);  // aligns text
+    textSize(50);
+    fill(50);
+    text("BREAKOUT", width/2, height/2);
+    textSize(25);
+    text(" - Press 'i' to view instructions", width/2, height/2 +100);
+    text(" - Press ENTER to play", width/2, height/2 +70);
+    if (keyPressed == true && key == ENTER) { //If enter key pressed, exits starting menu and starts game
+      menu = 2;
+    }
+    if (keyPressed == true && key == 'i') { //If i key pressed, exits starting menu and starts game
+      menu = 1;
+    }
+  }
+  if (menu==1) { //starting menu
     background(0);  //background for txt is black
     textAlign(CENTER);  // aligns text
+    fill(255);
     textSize(30);  //sets size of the "Instructions" text
     text("Instructions", width/2, height/2 - 40);  //display title called "Instructions"
     textSize(20); //sets size of the rest of the text to a smaller size than the title
+    text("- Press any key to start the ball moving.", width/2, height/2); //Instruction 1
     text("- Press left and right arrow keys on the keyboard to move the paddle.", width/2, height/2 + 20); //Instruction 2
     text("- To activate a powerup, press the spacebar.", width/2, height/2 + 40); //Instruction 2
-    text(" - Press 's' key to play", width/2, height/2 +70);
-  }
-
-  if (keyPressed == true && key == 's') { //If s key pressed, exits starting menu and starts game
-    menu = 1;
-  } else if (menu==1) {
+    text(" - Press ENTER to play", width/2, height/2 +70);
+    if (keyPressed == true && key == ENTER) { //If enter key pressed, exits starting menu and starts game
+      menu = 2;
+    }
+  } else if (menu==2) {
     p.move();  //move paddle according to player input
     p.display();  //display paddle
     b.move();  //move ball

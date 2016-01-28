@@ -21,6 +21,7 @@ class Block {
     //assign the value "h" to its health
     health = h;
 
+    //change the color of the block based on its health value
     if (h == 5) {
       r = 150;
       g = 0;
